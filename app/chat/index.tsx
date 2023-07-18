@@ -6,7 +6,7 @@ const ChatScreen = () => {
 
     //navigate to /chat/channel/public
     return (
-        <ChannelList onSelect={(channel) => router.push(`/chat/channel/public${channel?.id}`)} />
+        <ChannelList onSelect={(channel) => router.push(`/chat/channel/${channel?.id}`)} />
     )
 }
 

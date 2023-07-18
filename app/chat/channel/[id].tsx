@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator } from 'react-native'
+import { ActivityIndicator } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Channel as ChannelType } from "stream-chat"
 import { useLocalSearchParams } from 'expo-router'
@@ -13,7 +13,7 @@ const ChannelScreen = () => {
         const fetchChannel = async () => {
             const _id = typeof id === 'string' ?  id : id[0];
             const channels = await client.queryChannels({ id: { $eq: _id } });
-            setChannel(channel[0]);
+            setChannel(channels[0]);
         }
 
         fetchChannel();
