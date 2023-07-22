@@ -23,3 +23,9 @@ export const login = async (username: string): Promise<User | null> => {
         console.log(error)
     }
 }
+
+export const getUsers = async (): Promise<User[]> => {
+    const res = await fetch(`${API_URL}/users`);
+
+    return res.json()
+}
