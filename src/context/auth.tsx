@@ -1,5 +1,6 @@
 import { useRouter, useNavigation, useSegments } from 'expo-router';
 import { createContext, useContext, useEffect, useState } from 'react';
+import { login } from '../services/userService';
 
 export type User = {
   id: number;
@@ -66,7 +67,8 @@ export function AuthProvider(props) {
   useProtectedRoute(user);
 
   const signIn = async (username: string) => {
-    setUser({ id: 1, username: 'Joe', name: 'Joe' });
+    const newUser = await login(username);
+    setUser(newUser);
   };
 
   return (
